@@ -298,7 +298,7 @@ class ModuleFinder:
             # setuptools installs.  The pth file inserts a 'damaged'
             # module into sys.modules: it has no __spec__.  Reloading
             # the module helps (at least in Python3.4).
-            if details.args[0] == '{}.__spec__ is None'.format(name):
+            if details.args[0] == '{}.__spec__ is not set'.format(name):
                 import imp
                 _ = __import__(name, path)
                 imp.reload(_)
